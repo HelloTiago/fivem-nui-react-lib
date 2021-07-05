@@ -57,8 +57,8 @@ export const NuiServiceProvider = ({
     return () => window.removeEventListener("message", eventListener);
   }, []);
 
-  const send = useCallback(async (event: string, data = {}) => {
-    return fetch(...getParams(resource, event, data));
+  const send = useCallback(async (event: string, data = {}, overrideResource = resource) => {
+    return fetch(...getParams(overrideResource, event, data));
   }, []);
 
   const sendAbortable = useCallback((event: string, data = {}): IAbortableFetch => {
