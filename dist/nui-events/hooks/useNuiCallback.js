@@ -66,7 +66,7 @@ var useNuiCallback = function (app, method, handler, errHandler) {
                 setTimedOut(false);
                 setError(null);
                 setResponse(null);
-                fetchRef.current = sendAbortable(methodNameRef.current, data);
+                fetchRef.current = sendAbortable(appNameRef.current, methodNameRef.current, data);
                 var _options = options || { timeout: callbackTimeout };
                 var timeoutTime_1 = _options.timeout === false ? false : _options.timeout || callbackTimeout;
                 if (timeoutTime_1) {

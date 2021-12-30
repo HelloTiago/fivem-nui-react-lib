@@ -98,7 +98,7 @@ export const useNuiEventCallback = <I = unknown, R = unknown>(
   const fetch = useCallback((data?: I) => {
     setLoading((curr) => {
       if (!curr) {
-        fetchRef.current = sendAbortable(methodNameRef.current, data);
+        fetchRef.current = sendAbortable(appNameRef.current, methodNameRef.current, data);
         return true;
       }
       return curr;

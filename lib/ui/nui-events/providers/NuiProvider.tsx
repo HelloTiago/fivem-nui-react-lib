@@ -64,8 +64,8 @@ export const NuiProvider = ({
     return fetch(...getParams(resource, event, data));
   }, []);
 
-  const sendAbortable = useCallback((event: string, data = {}): IAbortableFetch => {
-    return abortableFetch(...getParams(resourceRef.current, event, data));
+  const sendAbortable = useCallback((resource = resourceRef.current, event: string, data = {}): IAbortableFetch => {
+    return abortableFetch(...getParams(resource, event, data));
   }, []);
 
   return (

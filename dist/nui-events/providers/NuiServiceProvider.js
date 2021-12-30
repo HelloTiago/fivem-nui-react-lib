@@ -89,17 +89,19 @@ var NuiServiceProvider = function (_a) {
         window.addEventListener("message", eventListener);
         return function () { return window.removeEventListener("message", eventListener); };
     }, []);
-    var send = react_1.useCallback(function (event, data) {
+    var send = react_1.useCallback(function (event, data, overrideResource) {
         if (data === void 0) { data = {}; }
+        if (overrideResource === void 0) { overrideResource = resource; }
         return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, fetch.apply(void 0, getParams(resource, event, data))];
+                return [2 /*return*/, fetch.apply(void 0, getParams(overrideResource, event, data))];
             });
         });
     }, []);
-    var sendAbortable = react_1.useCallback(function (event, data) {
+    var sendAbortable = react_1.useCallback(function (resourceOverride, event, data) {
+        if (resourceOverride === void 0) { resourceOverride = resource; }
         if (data === void 0) { data = {}; }
-        return abortableFetch.apply(void 0, getParams(resource, event, data));
+        return abortableFetch.apply(void 0, getParams(resourceOverride, event, data));
     }, []);
     return (jsx_runtime_1.jsx(NuiContext_1.NuiContext.Provider, __assign({ value: {
             resource: resourceRef.current,

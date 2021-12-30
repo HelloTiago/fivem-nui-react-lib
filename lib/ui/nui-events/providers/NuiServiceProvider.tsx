@@ -61,8 +61,8 @@ export const NuiServiceProvider = ({
     return fetch(...getParams(overrideResource, event, data));
   }, []);
 
-  const sendAbortable = useCallback((event: string, data = {}): IAbortableFetch => {
-    return abortableFetch(...getParams(resource, event, data));
+  const sendAbortable = useCallback((resourceOverride = resource, event: string, data = {}): IAbortableFetch => {
+    return abortableFetch(...getParams(resourceOverride, event, data));
   }, []);
 
   return (

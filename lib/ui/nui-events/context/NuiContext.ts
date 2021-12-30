@@ -5,7 +5,7 @@ export interface NuiContext {
   resource: string;
   callbackTimeout: number;
   send: (e: string, data?: unknown, resource? : string) => Promise<Response>;
-  sendAbortable: (e: string, data: unknown) => IAbortableFetch;
+  sendAbortable: (resource: string, e: string, data: unknown) => IAbortableFetch;
 }
 
 export const NuiContext = createContext<NuiContext>(null);
